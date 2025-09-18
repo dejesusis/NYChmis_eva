@@ -1,0 +1,25 @@
+The shiny.exe package provides a method to launch a Shiny application with a single click, without the need to open R or RStudio. It achieves this by creating a script and a shortcut that executes the script.
+Steps to use shiny.exe to package your R Shiny app into an executable:
+
+Install shiny.exe: If you haven't already, install the shiny.exe package from CRAN within your R environment:
+Code
+
+    install.packages("shiny.exe")
+
+Navigate to your Shiny app directory: Open an R session and set your working directory to the root directory of your Shiny application (the folder containing your app.R or ui.R/server.R files).
+Code
+
+    setwd("path/to/your/shiny/app")
+
+Run shiny.exe(): Execute the shiny.exe() function. This function will generate the necessary script and shortcut in your app's directory.
+Code
+
+    shiny.exe::shiny.exe()
+
+Optional arguments:
+app_name: You can specify a custom name for your app.
+
+host = "public": If you want to launch the application on a public server and make it accessible to other devices on the same network, set this argument. The application will then be accessible via your IPv4 address and the assigned port.
+Launch your app: After running shiny.exe(), a shortcut (e.g., Launch_App.lnk on Windows) will be created in your app's directory. Double-clicking this shortcut will launch your Shiny application in your default web browser.
+Stop the application: The application will run in a terminal window opened by the shortcut. To stop the application, simply close this terminal window.
+Note: While shiny.exe provides a convenient way to launch your app without RStudio, it does not create a fully standalone executable that bundles R itself. Users will still need an R installation on their system for the app to run. For creating truly standalone executables that include a portable R environment, consider packages like RInno or exploring solutions involving Electron with R integration.
